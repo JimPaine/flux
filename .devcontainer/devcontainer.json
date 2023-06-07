@@ -1,0 +1,35 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/alpine
+{
+	"name": "flux",
+    "build": {
+        "dockerfile": "./Dockerfile"
+    },
+
+    "customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			"settings": {
+                "workbench.colorTheme": "Default Dark+",
+                "editor.renderWhitespace": "all",
+                "files.trimTrailingWhitespace": true,
+                "diffEditor.ignoreTrimWhitespace": false,
+                "telemetry.telemetryLevel": "off",
+                "editor.bracketPairColorization.enabled": false
+            },
+			"extensions": [
+                "Weaveworks.vscode-gitops-tools",
+                "ms-vscode.vscode-node-azure-pack",
+				"streetsidesoftware.code-spell-checker"
+			]
+		}
+	},
+
+
+	"runArgs": [
+        "--userns=keep-id",
+        "-v=${localWorkspaceFolder}:/workspace:Z"
+    ],
+    "containerUser": "vscode",
+    "remoteUser": "vscode"
+}
